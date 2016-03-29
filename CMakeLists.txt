@@ -9,14 +9,6 @@ set(SMESH_VERSION_TWEAK 2-dev)
 
 
 #####################
-# no @rpath crap   #
-#####################
-# disable @rpath in the install name for any shared library being built
-# note: it is planned that a future version of CMake will enable this by default
-#set(CMAKE_MACOSX_RPATH 0)
-set(CMAKE_SKIP_RPATH 1)
-
-#####################
 # Set ABI SOVERSION #
 #####################
 set(SMESH_ABI_SOVERSION 2)
@@ -45,7 +37,7 @@ endif(SMESH_TESTING)
 ################################
 # OCE include and lib location #
 ################################
-set(OCE_REQUIRED_LIBS TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools)
+set(OCE_REQUIRED_LIBS TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing)
 find_package(OCE
     COMPONENTS ${OCE_REQUIRED_LIBS}
     CONFIG)
@@ -58,7 +50,7 @@ else()
         PATH "OCE headers location" )
     set( OCE_LIB_PATH /usr/local/lib CACHE
         PATH "OCE libraries location" )
-    set(OCE_LIBRARIES TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing TKAdvTools)
+    set(OCE_LIBRARIES TKernel TKMath TKBRep TKG2d TKG3d TKMeshVS TKPrim TKGeomBase TKGeomAlgo TKTopAlgo TKShHealing)
     # Tells CMake where are the required headers
     include_directories(${OCE_INCLUDE_PATH})
     LINK_DIRECTORIES(${OCE_LIB_PATH})
