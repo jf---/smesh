@@ -9,6 +9,9 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
 # Build step
 make -j 4
 
+# links libs
+make install
+
 # test
 make test
 
