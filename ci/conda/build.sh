@@ -13,8 +13,12 @@ make -j 4
 # links libs
 make install
 
+otool -L /Users/travis/miniconda/envs/_build/lib/libSMESH.dylib
+
 # test
 make test
+
+otool -L /Users/jelleferinga/GIT/smesh/test/MeshBasicGeometries_test/MeshBasicGeometries_test
 
 # Install step
 # redirect stdout stream to a file because of many boost header files
